@@ -30,6 +30,7 @@ require_once 'include/api3.inc.php';
 
 /**
  * @group sns
+ * @group exclude
  */
 class NotificationsTests extends APITests {
 	public function testNewItemNotification() {

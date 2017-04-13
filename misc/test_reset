@@ -97,7 +97,7 @@ $ID2 zoterotest_ids < ids.sql
 # sql_mode = STRICT_ALL_TABLES
 # default-time-zone = '+0:00'
 # event_scheduler = ON
-# 
+#
 #
 # Shard my.cnf:
 #
@@ -134,7 +134,7 @@ $ID2 zoterotest_ids < ids.sql
 # default-time-zone = '+0:00'
 # character-set-server = utf8
 # skip-innodb
-# 
+#
 # id1:
 #
 # auto-increment-increment = 2

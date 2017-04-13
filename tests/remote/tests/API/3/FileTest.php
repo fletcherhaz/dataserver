@@ -31,6 +31,7 @@ require_once 'include/bootstrap.inc.php';
 
 /**
  * @group s3
+ * @group exclude
  */
 class FileTests extends APITests {
 	private static $toDelete = array();
@@ -294,6 +295,9 @@ class FileTests extends APITests {
 		);
 	}
 	
+	/**
+	 * @group classic-sync
+	 */
 	public function testAddFileFormDataFullParams() {
 		$json = API::createAttachmentItem("imported_file", [], false, $this, 'jsonData');
 		$attachmentKey = $json['key'];
@@ -500,6 +504,7 @@ class FileTests extends APITests {
 	
 	/**
 	 * @depends testGetFile
+	 * @group classic-sync
 	 */
 	public function testAddFilePartial($getFileData) {
 		// Get serverDateModified
@@ -787,6 +792,9 @@ class FileTests extends APITests {
 		$this->assertEquals($contentType, $response->getHeader('Content-Type'));
 	}
 	
+	/**
+	 * @group classic-sync
+	 */
 	public function testAddFileClientV4() {
 		API::userClear(self::$config['userID']);
 		
@@ -991,6 +999,9 @@ class FileTests extends APITests {
 		$this->assertEquals($originalVersion, $json['version']);
 	}
 	
+	/**
+	 * @group classic-sync
+	 */
 	public function testAddFileClientV4Zip() {
 		API::userClear(self::$config['userID']);
 		
@@ -1170,6 +1181,9 @@ class FileTests extends APITests {
 		$this->assertEquals($originalVersion, $json['version']);
 	}
 	
+	/**
+	 * @group classic-sync
+	 */
 	public function testAddFileClientV5() {
 		API::userClear(self::$config['userID']);
 		
@@ -1432,6 +1446,9 @@ class FileTests extends APITests {
 		$this->assertGreaterThan($newVersion, $version);
 	}
 	
+	/**
+	 * @group classic-sync
+	 */
 	public function testAddFileClientV5Zip() {
 		API::userClear(self::$config['userID']);
 		

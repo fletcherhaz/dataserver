@@ -31,6 +31,7 @@ require_once 'include/api3.inc.php';
 
 /**
  * @group s3
+ * @group exclude
  */
 class PublicationsTests extends APITests {
 	private static $toDelete = [];

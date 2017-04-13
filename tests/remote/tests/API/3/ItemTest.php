@@ -1419,6 +1419,7 @@ class ItemTests extends APITests {
 	
 	/**
 	 * @group attachments
+	 * @group exclude
 	 */
 	public function testCreateLinkedFileAttachment() {
 		$key = API::createItem("book", false, $this, 'key');
