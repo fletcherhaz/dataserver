@@ -214,6 +214,11 @@ $awsConfig = [
 	],
 	'retries' => 2
 ];
+// Endpoint configuration
+if (!empty(Z_CONFIG::$AWS_ENDPOINT)) {
+	$awsConfig['endpoint'] = Z_CONFIG::$AWS_ENDPOINT;
+	$awsConfig['use_path_style_endpoint'] = true;
+}
 // IAM role authentication
 if (empty(Z_CONFIG::$AWS_ACCESS_KEY)) {
 	// If APC cache is available, use that to cache temporary credentials
