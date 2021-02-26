@@ -25,6 +25,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `userID` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
   `username` varchar(40) CHARACTER SET utf8 NOT NULL,
   `password` char(40) COLLATE utf8_bin NOT NULL,
+  `role` enum('member','admin','deleted') NOT NULL DEFAULT 'member',
   PRIMARY KEY (`userID`),
   UNIQUE KEY `username` (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
@@ -38,11 +39,11 @@ CREATE TABLE IF NOT EXISTS `users_email` (
   KEY `email` (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
-CREATE TABLE IF NOT EXISTS `LUM_User` (
+CREATE TABLE IF NOT EXISTS `GDN_User` (
   `UserID` int(10) NOT NULL AUTO_INCREMENT,
-  `RoleID` int(2) NOT NULL DEFAULT '0',
+  `Banned` int(2) NOT NULL DEFAULT '0',
     PRIMARY KEY (`UserID`),
-  KEY `user_role` (`RoleID`)
+  KEY `banned` (`Banned`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE IF NOT EXISTS `storage_institutions` (
