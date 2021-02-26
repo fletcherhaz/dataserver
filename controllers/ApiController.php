@@ -317,7 +317,9 @@ class ApiController extends Controller {
 		}
 		
 		// Request limiter needs initialized authentication parameters
-		$this->initRequestLimiter();
+		if (!Z_CONFIG::$TESTING_SITE) {
+			$this->initRequestLimiter();
+		}
 		
 		// Get object user
 		if (isset($this->objectUserID)) {
