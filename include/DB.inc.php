@@ -125,15 +125,17 @@ class Zotero_DB {
 		if (!$shardInfo) {
 			throw new Exception("Invalid shard $shardID");
 		}
-		
-		if ($shardInfo['state'] == 'down') {
-			throw new Exception("Shard $shardID is down", Z_ERROR_SHARD_UNAVAILABLE);
-		}
-		else if ($shardInfo['state'] == 'readonly') {
-			if ($isWriteQuery && get_called_class() != 'Zotero_Admin_DB') {
-				throw new Exception("Cannot write to read-only shard $shardID", Z_ERROR_SHARD_READ_ONLY);
-			}
-		}
+
+		if (isset($shardInfo['state'])) {
+            if ($shardInfo['state'] == 'down') {
+                throw new Exception("Shard $shardID is down", Z_ERROR_SHARD_UNAVAILABLE);
+            }
+            else if ($shardInfo['state'] == 'readonly') {
+                if ($isWriteQuery && get_called_class() != 'Zotero_Admin_DB') {
+                    throw new Exception("Cannot write to read-only shard $shardID", Z_ERROR_SHARD_READ_ONLY);
+                }
+            }
+        }
 		
 		if ($this->isReadOnly($shardID) && !$writeInReadMode) {
 			if (isset($shardInfo['replicas'])) {
