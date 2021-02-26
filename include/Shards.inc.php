@@ -89,9 +89,9 @@ class Zotero_Shards {
 		}
 		
 		// TEMP: Extra 'address'
-		$sql = "SELECT address, address AS host, port, state FROM shardHostReplicas "
-			. "WHERE shardHostID=? AND state='up'";
-		$replicaInfo = Zotero_DB::query($sql, $shardHostID);
+//		$sql = "SELECT address, address AS host, port, state FROM shardHostReplicas "
+//			. "WHERE shardHostID=? AND state='up'";
+//		$replicaInfo = Zotero_DB::query($sql, $shardHostID);
 		if (!$replicaInfo) {
 			$replicaInfo = [];
 			self::$shardHostReplicas[$shardHostID] = $replicaInfo;
