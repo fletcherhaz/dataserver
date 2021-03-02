@@ -174,6 +174,10 @@ class Zotero_FullText {
 			if ($e->getAwsErrorCode() == 'NoSuchKey') {
 				return null;
 			}
+			// Localstack returns a different code
+			else if ($e->getAwsErrorCode() == 'NotFound') {
+			    return null;
+            }
 			throw $e;
 		}
 		
